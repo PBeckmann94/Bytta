@@ -5,7 +5,7 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { ChakraProvider } from '@chakra-ui/react'
 import theme from './lib/theme'
-
+import Fonts from './Components/fonts'
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
