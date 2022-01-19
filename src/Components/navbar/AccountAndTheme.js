@@ -1,6 +1,5 @@
 import React from 'react'
 import { Box, Stack, Button, Link } from '@chakra-ui/react'
-import { MenuItem } from './Header'
 import ThemeToggleButton from './ThemeToggleButton'
 const AccountAndTheme = ({ isOpen }) => {
   return (

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Main from './Pages/Main'
 import { NavBar } from './Components/navbar/Header'
 import AdminPanel from './Pages/AdminPanel'
+import SignIn from './Pages/SignIn'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route exact path="/" element={<Main />}></Route>
           <Route path="/profile" element={'profil'}></Route>
           <Route path="/admin" element={<AdminPanel />}></Route>
+          <Route exact path="/" element={<SignIn />}></Route>
         </Routes>
       </BrowserRouter>
     </>

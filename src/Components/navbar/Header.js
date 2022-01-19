@@ -72,6 +72,7 @@ const NavBar = props => {
                 <MenuItem to="/about">About</MenuItem>
                 <MenuItem to="/profile">Profile </MenuItem>
                 <MenuItem to="/settings">Settings </MenuItem>
+                <MenuItem to="/SignIn">Sign In </MenuItem>
               </MenuList>
             </Menu>
           </Box>
@@ -117,6 +118,7 @@ const MenuLinks = ({ isOpen }) => {
         <MenuItem to="/about">About</MenuItem>
         <MenuItem to="/profile">Profile </MenuItem>
         <MenuItem to="/settings">Settings </MenuItem>
+        <MenuItem to="/Signin">Sign In </MenuItem>
       </Stack>
     </Box>
   )
