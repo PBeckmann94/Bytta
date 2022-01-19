@@ -65,7 +65,9 @@ const NavBar = props => {
                 variant="outlined"
                 color={'black'}
               />
-              <MenuList border="1px solid blue" width={{ base: '1px' }}>
+
+              <MenuList align="center" p={2}>
+
                 <MenuItem to="/">Home</MenuItem>
                 <MenuItem to="/about">About</MenuItem>
                 <MenuItem to="/profile">Profile </MenuItem>
