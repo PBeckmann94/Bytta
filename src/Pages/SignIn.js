@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react'
 import {
   Flex,
   Heading,
@@ -13,17 +13,18 @@ import {
   Avatar,
   FormControl,
   FormHelperText,
-  InputRightElement
-} from "@chakra-ui/react";
-import { AtSignIcon, LockIcon } from '@chakra-ui/icons';
+  InputRightElement,
+  useColorModeValue
+} from '@chakra-ui/react'
+import { AtSignIcon, LockIcon } from '@chakra-ui/icons'
 
-const CFaUserAlt = chakra(AtSignIcon);
-const CFaLock = chakra(LockIcon);
+const CFaUserAlt = chakra(AtSignIcon)
+const CFaLock = chakra(LockIcon)
 
 const Signin = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
 
-  const handleShowClick = () => setShowPassword(!showPassword);
+  const handleShowClick = () => setShowPassword(!showPassword)
 
   return (
     <Flex
@@ -33,6 +34,7 @@ const Signin = () => {
       backgroundColor="gray.300"
       justifyContent="center"
       alignItems="center"
+      bg={useColorModeValue('#dddddd', '#202023')}
     >
       <Stack
         flexDir="column"
@@ -41,13 +43,13 @@ const Signin = () => {
         alignItems="center"
       >
         <Avatar bg="blue.400" />
-        <Heading color="blue.400">Velkommen</Heading>
-        <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+        <Heading>Velkommen</Heading>
+        <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
           <form>
             <Stack
               spacing={4}
               p="2rem"
-              backgroundColor="whiteAlpha.900"
+              backgroundColor={useColorModeValue('#ff0000', '#0000ff')}
               boxShadow="md"
             >
               <FormControl>
@@ -67,12 +69,12 @@ const Signin = () => {
                     children={<CFaLock color="gray.300" />}
                   />
                   <Input
-                    type={showPassword ? "text" : "password"}
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="Passord"
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                      {showPassword ? "Hide" : "Show"}
+                      {showPassword ? 'Hide' : 'Show'}
                     </Button>
                   </InputRightElement>
                 </InputGroup>
@@ -94,14 +96,13 @@ const Signin = () => {
         </Box>
       </Stack>
       <Box>
-        Ny Bruker?{" "}
+        Ny Bruker?{' '}
         <Link color="blue.500" href="#">
           Lag bruker
         </Link>
       </Box>
     </Flex>
-  );
-};
+  )
+}
 
-export default Signin;
-
+export default Signin

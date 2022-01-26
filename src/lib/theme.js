@@ -30,7 +30,7 @@ const components = {
   },
   Button: {
     baseStyle: props => ({
-      color: mode('#202023', '#202023')(props),
+      color: mode('#202023', '#eeeeee')(props),
       bg: mode(`grassTeal`, `#aaddca`)(props)
     })
   }
@@ -45,7 +45,7 @@ const config = {
 }
 
 const colors = {
-  grassTeal: '#88ccca'
+  grassTeal: '#232323'
 }
 const theme = extendTheme({ config, styles, components, fonts, colors })
 export default theme

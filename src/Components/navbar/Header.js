@@ -31,7 +31,7 @@ const NavBar = props => {
 
   return (
     <Box
-      position="fixed"
+      position="static"
       as="nav"
       w="100%"
       bg={useColorModeValue('#ff000000', '#202023')}
@@ -67,7 +67,6 @@ const NavBar = props => {
               />
 
               <MenuList align="center" p={2}>
-
                 <MenuItem to="/">Home</MenuItem>
                 <MenuItem to="/about">About</MenuItem>
                 <MenuItem to="/profile">Profile </MenuItem>

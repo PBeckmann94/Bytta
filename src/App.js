@@ -14,7 +14,7 @@ function App() {
           <Route exact path="/" element={<Main />}></Route>
           <Route path="/profile" element={'profil'}></Route>
           <Route path="/admin" element={<AdminPanel />}></Route>
-          <Route exact path="/" element={<SignIn />}></Route>
+          <Route exact path="/signin" element={<SignIn />}></Route>
         </Routes>
       </BrowserRouter>
     </>
