@@ -30,7 +30,7 @@ const Signin = () => {
     <Flex
       flexDirection="column"
       width="100wh"
-      height="100vh"
+      height="80vh"
       backgroundColor="gray.300"
       justifyContent="center"
       alignItems="center"
@@ -49,14 +49,14 @@ const Signin = () => {
             <Stack
               spacing={4}
               p="2rem"
-              backgroundColor={useColorModeValue('#ff0000', '#0000ff')}
+              backgroundColor={useColorModeValue('blue.400', 'gray.700')}
               boxShadow="md"
             >
               <FormControl>
                 <InputGroup>
                   <InputLeftElement
                     pointerEvents="none"
-                    children={<CFaUserAlt color="gray.300" />}
+                    children={<CFaUserAlt color="white" />}
                   />
                   <Input type="email" placeholder="E-mail adresse" />
                 </InputGroup>
@@ -65,8 +65,8 @@ const Signin = () => {
                 <InputGroup>
                   <InputLeftElement
                     pointerEvents="none"
-                    color="gray.300"
-                    children={<CFaLock color="gray.300" />}
+                    color="black"
+                    children={<CFaLock color="white" />}
                   />
                   <Input
                     type={showPassword ? 'text' : 'password'}
