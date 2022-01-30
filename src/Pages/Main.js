@@ -1,6 +1,6 @@
 import React from 'react'
-
-const Main = () => {
-  return <></>
+import Feed from '../Components/trades/Feed'
+function Main() {
+  return <Feed />
 }
 export default Main

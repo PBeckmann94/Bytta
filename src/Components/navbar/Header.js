@@ -4,7 +4,6 @@ import {
   Box,
   Flex,
   Text,
-  Button,
   Stack,
   Container,
   Heading,
@@ -12,15 +11,13 @@ import {
   MenuButton,
   IconButton,
   MenuList,
-  useColorModeValue,
-  useColorMode,
-  Divider,
-  Spacer
+  useColorModeValue
 } from '@chakra-ui/react'
 import { CloseIcon } from '@chakra-ui/icons'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import Logo from './Logo'
 import ThemeToggleButton from './ThemeToggleButton'
+
 import { Navigate } from 'react-router-dom'
 const NavBar = props => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -67,10 +64,7 @@ const NavBar = props => {
               />
 
               <MenuList align="center" p={2}>
-<<<<<<< HEAD
-=======
 
->>>>>>> 0438296de4a6b947cfdae087b23f8ee428ad3763
                 <MenuItem to="/">Home</MenuItem>
                 <MenuItem to="/about">About</MenuItem>
                 <MenuItem to="/profile">Profile </MenuItem>
@@ -84,6 +78,7 @@ const NavBar = props => {
     </Box>
   )
 }
+
 
 const MenuToggle = ({ toggle, isOpen }) => {
   return (
@@ -126,7 +121,7 @@ const MenuLinks = ({ isOpen }) => {
     </Box>
   )
 }
-
+/*
 const NavBarContainer = ({ children, ...props }) => {
   return (
     <Flex
@@ -144,6 +139,61 @@ const NavBarContainer = ({ children, ...props }) => {
       {children}
     </Flex>
   )
-}
+}*/
+const NavBar = props => {
+  //const { path } = props
+  //const [isOpen, setIsOpen] = React.useState(false)
+  //const toggle = () => setIsOpen(!isOpen)
 
+  // MenuList er like bred som parent, mA fikses
+
+  return (
+    <Box
+      as="nav"
+      bg={useColorModeValue('#ff000000', '#202023')}
+      style={{ backdropFilter: 'blur(10px' }}
+      zIndex={1}
+      {...props}
+    >
+      <Container
+        display="flex"
+        flexDir="row"
+        p={2}
+        maxW="container.md"
+        wrap="wrap"
+        align="center"
+      >
+        <Flex align="left" mr={5}>
+          <Heading as="h2" size="md" letterSpacing="tighter">
+            <Logo />
+          </Heading>
+        </Flex>
+        <MenuLinks />
+        <Box flex={1} align="right">
+          <ThemeToggleButton />
+          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                bg={useColorModeValue('#dddddd', '#FBD28D')}
+                icon={<MenuToggle />}
+                aria-label="Options"
+                variant="outlined"
+                color={'black'}
+              />
+
+              <MenuList align="center" p={2}>
+                <MenuItem to="/">Home</MenuItem>
+                <MenuItem to="/about">About</MenuItem>
+                <MenuItem to="/profile">Profile </MenuItem>
+                <MenuItem to="/settings">Settings </MenuItem>
+                <MenuItem to="/SignIn">Sign In </MenuItem>
+              </MenuList>
+            </Menu>
+          </Box>
+        </Box>
+      </Container>
+    </Box>
+  )
+}
 export { NavBar }

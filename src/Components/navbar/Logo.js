@@ -1,5 +1,3 @@
-import Link from 'react'
-import { Text, useColorModeValue } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import logo from '../../lib/trade.png'
 const LogoBox = styled.span`
@@ -18,11 +16,6 @@ const LogoBox = styled.span`
   }
 `
 const Logo = () => {
-  const footPrintImg = `/images/scienceLogo${useColorModeValue(
-    '',
-    '-dark'
-  )}.png`
-
   return (
     <LogoBox>
       <img src={logo} width={60} height={60} alt="logo" />
