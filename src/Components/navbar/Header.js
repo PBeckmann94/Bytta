@@ -18,68 +18,6 @@ import { HamburgerIcon } from '@chakra-ui/icons'
 import Logo from './Logo'
 import ThemeToggleButton from './ThemeToggleButton'
 
-import { Navigate } from 'react-router-dom'
-const NavBar = props => {
-  const [isOpen, setIsOpen] = React.useState(false)
-  const { toggleColorMode } = useColorMode()
-  const toggle = () => setIsOpen(!isOpen)
-
-  // MenuList er like bred som parent, mA fikses
-
-  return (
-    <Box
-      position="static"
-      as="nav"
-      w="100%"
-      bg={useColorModeValue('#ff000000', '#202023')}
-      style={{ backdropFilter: 'blur(10px' }}
-      zIndex={1}
-      {...props}
-    >
-      <Container
-        display="flex"
-        flexDir="row"
-        p={2}
-        maxW="container.md"
-        wrap="wrap"
-        align="center"
-      >
-        <Flex align="left" mr={5}>
-          <Heading as="h2" size="md" letterSpacing="tighter">
-            <Logo />
-          </Heading>
-        </Flex>
-        <MenuLinks />
-        <Box flex={1} align="right">
-          <ThemeToggleButton />
-          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu>
-              <MenuButton
-                as={IconButton}
-                bg={useColorModeValue('#dddddd', '#FBD28D')}
-                icon={<HamburgerIcon />}
-                aria-label="Options"
-                variant="outlined"
-                color={'black'}
-              />
-
-              <MenuList align="center" p={2}>
-
-                <MenuItem to="/">Home</MenuItem>
-                <MenuItem to="/about">About</MenuItem>
-                <MenuItem to="/profile">Profile </MenuItem>
-                <MenuItem to="/settings">Settings </MenuItem>
-                <MenuItem to="/SignIn">Sign In </MenuItem>
-              </MenuList>
-            </Menu>
-          </Box>
-        </Box>
-      </Container>
-    </Box>
-  )
-}
-
-
 const MenuToggle = ({ toggle, isOpen }) => {
   return (
     <Box display={{ base: 'block', md: 'none' }} onClick={toggle}>

@@ -5,7 +5,6 @@ import { collection, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
 
 const AdminContainer = () => {
-<<<<<<< HEAD
   const [users, setUsers] = useState([])
   const usersCollectionRef = collection(db, 'users')
   // burde sjekke localstorage, kun laste fra db hvis lastChanged i users
@@ -40,10 +39,6 @@ const AdminContainer = () => {
       </ul>
     </>
   )
-=======
-  return <>hallo</>
-
->>>>>>> 0438296de4a6b947cfdae087b23f8ee428ad3763
 }
 
 export default AdminContainer
