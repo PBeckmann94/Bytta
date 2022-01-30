@@ -67,6 +67,10 @@ const NavBar = props => {
               />
 
               <MenuList align="center" p={2}>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0438296de4a6b947cfdae087b23f8ee428ad3763
                 <MenuItem to="/">Home</MenuItem>
                 <MenuItem to="/about">About</MenuItem>
                 <MenuItem to="/profile">Profile </MenuItem>
