@@ -13,8 +13,7 @@ import {
   MenuList,
   useColorModeValue
 } from '@chakra-ui/react'
-import { CloseIcon } from '@chakra-ui/icons'
-import { HamburgerIcon } from '@chakra-ui/icons'
+import { CloseIcon, HamburgerIcon, ChatIcon } from '@chakra-ui/icons'
 import Logo from './Logo'
 import ThemeToggleButton from './ThemeToggleButton'
 
@@ -55,6 +54,7 @@ const MenuLinks = ({ isOpen }) => {
         <MenuItem to="/profile">Profile </MenuItem>
         <MenuItem to="/settings">Settings </MenuItem>
         <MenuItem to="/Signin">Sign In </MenuItem>
+        <MenuItem to="/messages"> Messages</MenuItem>
       </Stack>
     </Box>
   )
@@ -97,7 +97,7 @@ const NavBar = props => {
         display="flex"
         flexDir="row"
         p={2}
-        maxW="container.md"
+        maxW="container.lg"
         wrap="wrap"
         align="center"
       >
@@ -126,6 +126,7 @@ const NavBar = props => {
                 <MenuItem to="/profile">Profile </MenuItem>
                 <MenuItem to="/settings">Settings </MenuItem>
                 <MenuItem to="/SignIn">Sign In </MenuItem>
+                <MenuItem to="/messages"> Messages</MenuItem>
               </MenuList>
             </Menu>
           </Box>

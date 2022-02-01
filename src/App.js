@@ -4,7 +4,7 @@ import Main from './Pages/Main'
 import { NavBar } from './Components/navbar/Header'
 import AdminPanel from './Pages/AdminPanel'
 import SignIn from './Pages/SignIn'
-
+import Messages from './Pages/Messages'
 function App() {
   return (
     <>
@@ -15,6 +15,7 @@ function App() {
           <Route path="/profile" element={'profil'}></Route>
           <Route path="/admin" element={<AdminPanel />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>
+          <Route path="/messages" element={<Messages />}></Route>
         </Routes>
       </BrowserRouter>
     </>
