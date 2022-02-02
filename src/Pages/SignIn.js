@@ -30,6 +30,7 @@ const Signin = () => {
     <Flex
       flexDirection="column"
       height="80vh"
+      width="100wh"
       backgroundColor="gray.300"
       justifyContent="center"
       alignItems="center"
