@@ -40,8 +40,7 @@ const fonts = {
 }
 
 const config = {
-  initialColorMode: 'dark',
-  useSystemColorMode: true
+  initialColorMode: 'dark'
 }
 
 const colors = {
