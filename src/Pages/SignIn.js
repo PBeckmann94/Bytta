@@ -17,7 +17,7 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import { AtSignIcon, LockIcon } from '@chakra-ui/icons'
-
+import LoginToast from '../Components/toasts/LoginToast'
 const CFaUserAlt = chakra(AtSignIcon)
 const CFaLock = chakra(LockIcon)
 
@@ -82,7 +82,7 @@ const Signin = () => {
                   <Link>Glemt passord?</Link>
                 </FormHelperText>
               </FormControl>
-              <Button
+              <LoginToast 
                 borderRadius={0}
                 type="submit"
                 variant="solid"
@@ -90,7 +90,7 @@ const Signin = () => {
                 width="full"
               >
                 Logg Inn
-              </Button>
+              </LoginToast>
             </Stack>
           </form>
         </Box>
