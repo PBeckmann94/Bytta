@@ -17,7 +17,7 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import { AtSignIcon, LockIcon } from '@chakra-ui/icons'
-
+import LoginToast from '../Components/toasts/LoginToast'
 const CFaUserAlt = chakra(AtSignIcon)
 const CFaLock = chakra(LockIcon)
 
@@ -56,24 +56,23 @@ const Signin = () => {
                 <InputGroup>
                   <InputLeftElement
                     pointerEvents="none"
-                    children={<CFaUserAlt color="white" />}
+                    children={<CFaUserAlt color="gray" />}
                   />
-                  <Input type="email" placeholder="E-mail adresse" />
+                  <Input type="email" placeholder="E-mail adresse" bg="white"/>
                 </InputGroup>
               </FormControl>
               <FormControl>
                 <InputGroup>
                   <InputLeftElement
                     pointerEvents="none"
-                    color="black"
-                    children={<CFaLock color="white" />}
+                    children={<CFaLock color="gray" />}
                   />
                   <Input
                     type={showPassword ? 'text' : 'password'}
-                    placeholder="Passord"
+                    placeholder="Passord" bg="white"
                   />
                   <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" onClick={handleShowClick}>
+                    <Button h="1.75rem" size="sm" bg="gray.400" onClick={handleShowClick}>
                       {showPassword ? 'Hide' : 'Show'}
                     </Button>
                   </InputRightElement>
@@ -82,7 +81,7 @@ const Signin = () => {
                   <Link>Glemt passord?</Link>
                 </FormHelperText>
               </FormControl>
-              <Button
+              <LoginToast 
                 borderRadius={0}
                 type="submit"
                 variant="solid"
@@ -90,7 +89,7 @@ const Signin = () => {
                 width="full"
               >
                 Logg Inn
-              </Button>
+              </LoginToast>
             </Stack>
           </form>
         </Box>
