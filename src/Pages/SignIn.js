@@ -56,24 +56,23 @@ const Signin = () => {
                 <InputGroup>
                   <InputLeftElement
                     pointerEvents="none"
-                    children={<CFaUserAlt color="white" />}
+                    children={<CFaUserAlt color="gray" />}
                   />
-                  <Input type="email" placeholder="E-mail adresse" />
+                  <Input type="email" placeholder="E-mail adresse" bg="white"/>
                 </InputGroup>
               </FormControl>
               <FormControl>
                 <InputGroup>
                   <InputLeftElement
                     pointerEvents="none"
-                    color="black"
-                    children={<CFaLock color="white" />}
+                    children={<CFaLock color="gray" />}
                   />
                   <Input
                     type={showPassword ? 'text' : 'password'}
-                    placeholder="Passord"
+                    placeholder="Passord" bg="white"
                   />
                   <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" onClick={handleShowClick}>
+                    <Button h="1.75rem" size="sm" bg="gray.400" onClick={handleShowClick}>
                       {showPassword ? 'Hide' : 'Show'}
                     </Button>
                   </InputRightElement>
