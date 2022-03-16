@@ -9,21 +9,21 @@ function Feed() {
         userName="SkitneKjell"
         itemProvided={Iphone}
         itemWanted={Traktor}
-        description="helo its ya boi indianBoi33 from swedene i like play counter stirk and i selled my wife for internet connection please donateion"
+        description="trading my very old iphone for a very expensive tractor"
         distance="2"
       />
       <Post
         userName="SkitneKjell"
         itemProvided={Iphone}
         itemWanted={Traktor}
-        description="I wanna die"
+        description=":D"
         distance="2"
       />{' '}
       <Post
         userName="SkitneKjell"
         itemProvided={Iphone}
         itemWanted={Traktor}
-        description="I wanna die"
+        description=":D"
         distance="2"
       />
     </SimpleGrid>

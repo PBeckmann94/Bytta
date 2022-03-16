@@ -4,15 +4,13 @@ function MessageContainer() {
   return (
     <Flex direction="column" height="100%">
       <Spacer />
-      <Message text="yoooo" avatar="https://i.imgur.com/eyoNjrV.png" />
+      <Message text="yoooo" avatar="https://i.imgur.com/eyoNjrV.png" user />
       <Message
-        text="yooooooooooooooooooooooo"
+        isSentFromCurrentUser
+        text="yooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
         avatar="https://i.imgur.com/eyoNjrV.png"
       />
-      <Message
-        text="plz respond i showed u my penis"
-        avatar="https://i.imgur.com/eyoNjrV.png"
-      />
+      <Message text="plz respond" avatar="https://i.imgur.com/eyoNjrV.png" />
     </Flex>
   )
 }

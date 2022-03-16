@@ -10,7 +10,7 @@ function ChatFeed() {
     '-1px 0px 0px #333333'
   )
   return (
-    <Flex direction="column" h="95vh" w="100%" boxShadow={shadow}>
+    <Flex direction="column" h="95vh" w="100%" boxShadow={shadow} p={8}>
       <Box p={4}>
         <FeedTitle
           avatar="https://i.imgur.com/eyoNjrV.png"
@@ -21,7 +21,7 @@ function ChatFeed() {
       <Box h="100%" p={4}>
         <MessageContainer />
       </Box>
-      <Box h="5%" p={2}>
+      <Box>
         <InputBar />
       </Box>
     </Flex>
