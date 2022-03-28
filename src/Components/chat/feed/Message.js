@@ -1,16 +1,20 @@
-import { Box, Flex, Avatar, Text } from '@chakra-ui/react'
+import { Box, Flex, Avatar, Text, useColorModeValue } from '@chakra-ui/react'
 
-function Message({ user, avatar, text }) {
+function Message({ avatar, text, isSentFromCurrentUser }) {
+  const senderBackground = useColorModeValue('#E5E6EB', '#333333')
+  const senderText = useColorModeValue('#333333', '#dddddd')
   return (
-    <Box margin="20px">
+    <Box margin="20px" alignSelf={isSentFromCurrentUser ? 'end' : 'start'}>
       <Flex>
         <Avatar size="sm" alignSelf="center" src={avatar} />
         <Text
-          bg="#0183FF"
+          bg={!isSentFromCurrentUser ? senderBackground : '#0183FF'}
+          color={!isSentFromCurrentUser ? senderText : '#dddddd'}
           marginLeft="10px"
           padding="10px"
           borderRadius="20px"
           alignSelf="center"
+          maxW="sm"
         >
           {text}
         </Text>
