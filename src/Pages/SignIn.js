@@ -18,11 +18,17 @@ import {
 } from '@chakra-ui/react'
 import { AtSignIcon, LockIcon } from '@chakra-ui/icons'
 import LoginToast from '../Components/toasts/LoginToast'
+import { auth, logInWithEmailAndPassword, signInWithGoogle } from '../firebase'
+import { useAuthState } from 'react-firebase-hooks/auth'
 const CFaUserAlt = chakra(AtSignIcon)
 const CFaLock = chakra(LockIcon)
 
 const Signin = () => {
   const [showPassword, setShowPassword] = useState(false)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, error] = useAuthState(auth);
+  
 
   const handleShowClick = () => setShowPassword(!showPassword)
 
@@ -58,7 +64,13 @@ const Signin = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray" />}
                   />
-                  <Input type="email" placeholder="E-mail adresse" bg="white"/>
+                  <Input 
+                  type="email" 
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="E-mail adresse" 
+                  bg="white"
+                  />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -69,7 +81,10 @@ const Signin = () => {
                   />
                   <Input
                     type={showPassword ? 'text' : 'password'}
-                    placeholder="Passord" bg="white"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Passord" 
+                    bg="white"
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" bg="gray.400" onClick={handleShowClick}>
@@ -81,15 +96,24 @@ const Signin = () => {
                   <Link>Glemt passord?</Link>
                 </FormHelperText>
               </FormControl>
-              <LoginToast 
+              <button 
+                className="login__button"
+                bg="white"
+                onClick={() => logInWithEmailAndPassword(email, password)}
                 borderRadius={0}
                 type="submit"
-                variant="solid"
-                colorScheme="blue"
+                variant="solid"               
                 width="full"
+                
               >
                 Logg Inn
-              </LoginToast>
+              </button>
+              <Button 
+              className="login__btn login__google" 
+              bg="blue.500" 
+              onClick={signInWithGoogle}>
+                Logg inn med Google
+              </Button>
             </Stack>
           </form>
         </Box>
