@@ -58,7 +58,11 @@ const Signin = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray" />}
                   />
-                  <Input type="email" placeholder="E-mail adresse" bg="white"/>
+                  <Input
+                    type="email"
+                    placeholder="E-mail adresse"
+                    bg={useColorModeValue('white', '#353535')}
+                  />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -69,10 +73,16 @@ const Signin = () => {
                   />
                   <Input
                     type={showPassword ? 'text' : 'password'}
-                    placeholder="Passord" bg="white"
+                    placeholder="Passord"
+                    bg={useColorModeValue('white', '#353535')}
                   />
                   <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" bg="gray.400" onClick={handleShowClick}>
+                    <Button
+                      h="1.75rem"
+                      size="sm"
+                      bg="gray.400"
+                      onClick={handleShowClick}
+                    >
                       {showPassword ? 'Hide' : 'Show'}
                     </Button>
                   </InputRightElement>
@@ -81,7 +91,7 @@ const Signin = () => {
                   <Link>Glemt passord?</Link>
                 </FormHelperText>
               </FormControl>
-              <LoginToast 
+              <LoginToast
                 borderRadius={0}
                 type="submit"
                 variant="solid"

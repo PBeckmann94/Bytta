@@ -6,7 +6,7 @@ import { Flex, Box, useColorModeValue } from '@chakra-ui/react'
 
 function ChatFeed() {
   const shadow = useColorModeValue(
-    '-1px 0px 0px #ffffff',
+    '-1px 0px 0px #AAAAAA',
     '-1px 0px 0px #333333'
   )
   return (

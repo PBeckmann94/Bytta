@@ -1,27 +1,24 @@
 import React from 'react'
 import { Button } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
-import { collection, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
+import { collection, getDocs } from 'firebase/firestore/lite'
 
 const AdminContainer = () => {
   const [users, setUsers] = useState([])
-  const usersCollectionRef = collection(db, 'users')
-  // burde sjekke localstorage, kun laste fra db hvis lastChanged i users
-  //  ikke samsvarer med localstorage sin lastUpdated feks
   useEffect(() => {
-    onSnapshot(usersCollectionRef, snapshot => {
-      setUsers(
-        snapshot.docs.map(doc => {
-          return {
-            id: doc.id,
-            viewing: false,
-            ...doc.data()
-          }
-        })
-      )
-    })
-  }, [usersCollectionRef])
+    async function getUsers(db) {
+      const usersCol = collection(db, 'users')
+      const usersSnapshot = await getDocs(usersCol)
+      const usersList = usersSnapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id
+      }))
+      setUsers(usersList)
+    }
+    getUsers(db)
+  }, [])
+
   return (
     <>
       <Button

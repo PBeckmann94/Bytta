@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Link,
   Box,
   Flex,
   Text,
@@ -13,7 +12,8 @@ import {
   MenuList,
   useColorModeValue
 } from '@chakra-ui/react'
-import { CloseIcon, HamburgerIcon, ChatIcon } from '@chakra-ui/icons'
+import { Link } from 'react-router-dom'
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import Logo from './Logo'
 import ThemeToggleButton from './ThemeToggleButton'
 
@@ -27,7 +27,7 @@ const MenuToggle = ({ toggle, isOpen }) => {
 
 const MenuItem = ({ children, isLast, to = '/', ...rest }) => {
   return (
-    <Link href={to}>
+    <Link to={to}>
       <Text display="block" {...rest}>
         {children}
       </Text>
@@ -59,32 +59,8 @@ const MenuLinks = ({ isOpen }) => {
     </Box>
   )
 }
-/*
-const NavBarContainer = ({ children, ...props }) => {
-  return (
-    <Flex
-      as="nav"
-      align="center"
-      justify="space-between"
-      wrap="wrap"
-      w="100%"
-      mb={8}
-      p={8}
-      bg={['primary.500', 'primary.500', 'transparent', 'transparent']}
-      color={['white', 'white', 'primary.700', 'primary.700']}
-      {...props}
-    >
-      {children}
-    </Flex>
-  )
-}*/
 const NavBar = props => {
-  //const { path } = props
-  //const [isOpen, setIsOpen] = React.useState(false)
-  //const toggle = () => setIsOpen(!isOpen)
-
   // MenuList er like bred som parent, mA fikses
-
   return (
     <Box
       as="nav"
