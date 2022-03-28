@@ -69,7 +69,7 @@ const Signin = () => {
                   value={email} 
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="E-mail adresse" 
-                  bg="white"
+                  bg={useColorModeValue('white', '#353535')}
                   />
                 </InputGroup>
               </FormControl>
@@ -84,7 +84,7 @@ const Signin = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Passord" 
-                    bg="white"
+                    bg={useColorModeValue('white', '#353535')}
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" bg="gray.400" onClick={handleShowClick}>
