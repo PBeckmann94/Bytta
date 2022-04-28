@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Flex,
   Heading,
@@ -6,29 +6,68 @@ import {
   Button,
   InputGroup,
   Stack,
+  Link,
   InputLeftElement,
   chakra,
   Box,
-  Link,
   Avatar,
   FormControl,
   FormHelperText,
   InputRightElement,
-  useColorModeValue
+  useColorModeValue,
+  CircularProgress
 } from '@chakra-ui/react'
 import { AtSignIcon, LockIcon } from '@chakra-ui/icons'
-import LoginToast from '../Components/toasts/LoginToast'
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from '../firebase'
+import { useToast } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom"
+import { auth, logInWithEmailAndPassword, signInWithGoogle, sendPasswordReset } from '../firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import ErrorMessage from "../Components/toasts/ErrorMessage"
+
+
 const CFaUserAlt = chakra(AtSignIcon)
 const CFaLock = chakra(LockIcon)
+const toast = useToast
 
 const Signin = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, error] = useAuthState(auth);
-  
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
+  const handleSubmit = async event => {
+    event.preventDefault();
+    setIsLoading(true);
+    try {
+      await userLogin({ email, password });
+      setIsLoading(false);
+    } catch (error) {
+      setError('Invalid username or password');
+      setIsLoading(false);
+      setEmail('');
+      setPassword('');
+    }
+  };
+
+  const userLogin = async ({ email, password }) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (email === 'test@test.com' && password === 'test123') {
+          resolve();
+        } else {
+          reject();
+        }
+      }, 3000);
+    });
+  };
+
+
+  useEffect(() => {
+    if (user) navigate('/dashboard');
+  });
+
 
   const handleShowClick = () => setShowPassword(!showPassword)
 
@@ -49,16 +88,18 @@ const Signin = () => {
         alignItems="center"
       >
         <Avatar bg="blue.400" />
-        <Heading>Velkommen</Heading>
         <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-          <form>
+
+          <form onSubmit={handleSubmit}>
+          {error && <ErrorMessage message={error} />}
+
             <Stack
               spacing={4}
               p="2rem"
               backgroundColor={useColorModeValue('blue.400', 'gray.700')}
               boxShadow="md"
             >
-              <FormControl>
+              <FormControl isRequired>
                 <InputGroup>
                   <InputLeftElement
                     pointerEvents="none"
@@ -73,7 +114,7 @@ const Signin = () => {
                   />
                 </InputGroup>
               </FormControl>
-              <FormControl>
+              <FormControl isRequired>
                 <InputGroup>
                   <InputLeftElement
                     pointerEvents="none"
@@ -92,37 +133,48 @@ const Signin = () => {
                     </Button>
                   </InputRightElement>
                 </InputGroup>
+                
                 <FormHelperText textAlign="right">
-                  <Link>Glemt passord?</Link>
+                  <Link onClick={sendPasswordReset}>Glemt passord?</Link>
                 </FormHelperText>
               </FormControl>
-              <button 
+
+              <Button 
                 className="login__button"
-                bg="white"
+                backgroundColor={useColorModeValue('white.500', 'blue.500')}
                 onClick={() => logInWithEmailAndPassword(email, password)}
-                borderRadius={0}
                 type="submit"
-                variant="solid"               
-                width="full"
-                
-              >
-                Logg Inn
-              </button>
+              > 
+              {isLoading ? (
+              <CircularProgress isIndeterminate size="24px" color="teal" />
+              ) : (
+                'Logg Inn'
+              )}
+              </Button>
+
               <Button 
               className="login__btn login__google" 
-              bg="blue.500" 
+              backgroundColor={useColorModeValue('white.500', 'blue.500')}
+              variant="solid"   
               onClick={signInWithGoogle}>
                 Logg inn med Google
               </Button>
+
             </Stack>
           </form>
         </Box>
       </Stack>
       <Box>
+       
         Ny Bruker?{' '}
-        <Link color="blue.500" href="#">
-          Lag bruker
+        <Link
+        color='blue.500' 
+        href="/register">
+        Lag bruker 
         </Link>
+       
+          
+
       </Box>
     </Flex>
   )
