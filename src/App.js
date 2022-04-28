@@ -5,6 +5,8 @@ import { NavBar } from './Components/navbar/Header'
 import AdminPanel from './Pages/AdminPanel'
 import SignIn from './Pages/SignIn'
 import Messages from './Pages/Messages'
+import Register from './Pages/Register'
+import Dashboard from './Pages/Dashboard'
 function App() {
   return (
     <>
@@ -15,6 +17,8 @@ function App() {
         <Route path="/admin" element={<AdminPanel />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
         <Route path="/messages" element={<Messages />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route exact path="/dashboard" element={<Dashboard />} />
       </Routes>
     </>
   )
